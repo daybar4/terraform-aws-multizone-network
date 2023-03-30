@@ -39,3 +39,15 @@ output "AWS_ROUTE_TABLE_ID" {
   value       = aws_route_table.aws-rt.id
   description = "CREATED ROUTE TABLE ID"
 }
+
+output "AWS_PUBLIC_SG_NAME" { value = var.aws-public-sg-name }
+output "AWS_PUBLIC_SG_ID" {
+  value       = aws_security_group.aws-public_sg.id
+  description = "CREATED PUBLIC SECURITY GROUP ID"
+}
+
+output "AWS_PRIVATE_SG_NAME" { value = var.aws-private-sg-name }
+output "AWS_PRIVATE_SG_ID" {
+  value       = aws_security_group.aws-private_sg.id
+  description = "CREATED PRIVATE SECURITY GROUP ID"
+}

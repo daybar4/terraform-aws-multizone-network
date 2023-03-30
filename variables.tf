@@ -33,6 +33,8 @@ variable "aws-public-subnet-name-2" { default = "aws-public-subnet-2" }
 variable "aws-private-subnet-name-1" { default = "aws-private-subnet-1" }
 variable "aws-private-subnet-name-2" { default = "aws-private-subnet-2" }
 variable "aws-rt-name" { default = "aws-rt" }
+variable "aws-public-sg-name" { default = "aws-public_sg" }
+variable "aws-private-sg-name" { default = "aws-private_sg" }
 
 # ---------------------------------
 # END OF NAMES SECTION

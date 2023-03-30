@@ -104,6 +104,52 @@ resource "aws_route_table_association" "aws-public-route_2" {
   route_table_id = aws_route_table.aws-rt.id
 }
 
+/*
+* Create security groups
+*/
+resource "aws_security_group" "aws-public_sg" {
+  name        = var.aws-public-sg-name
+  description = "Allow public traffic"
+  vpc_id      = aws_vpc.vpc.id
+
+  ingress {
+    description = "SSH standard"
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+  egress {
+    description = "outbound traffic open"
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+
+  }
+}
+
+resource "aws_security_group" "aws-private_sg" {
+  name        = var.aws-private-sg-name
+  description = "Allow private traffic"
+  vpc_id      = aws_vpc.vpc.id
+
+  ingress {
+    description = "SSH standard"
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+
+  }
+}
+
 # -----------------------------------------------
 # END OF network section
 # -----------------------------------------------
